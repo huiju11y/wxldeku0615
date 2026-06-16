@@ -1,0 +1,40 @@
+{
+  "_importNote": "请从国家统计局官网 https://www.stats.gov.cn/ 导入真实数据。status 设为 loaded 并填充 series 后图表将自动渲染。严禁手工编造数字。",
+  "source": {
+    "name": "国家统计局",
+    "title": "国民经济和社会发展统计公报",
+    "url": "https://www.stats.gov.cn/",
+    "reportYears": []
+  },
+  "status": "pending",
+  "indicators": [
+    {
+      "id": "youth_unemployment",
+      "name": "16-24岁城镇调查失业率",
+      "unit": "%",
+      "description": "青年群体城镇调查失业率",
+      "series": []
+    },
+    {
+      "id": "disposable_income",
+      "name": "居民人均可支配收入",
+      "unit": "元",
+      "description": "全国居民人均可支配收入",
+      "series": []
+    },
+    {
+      "id": "consumption_expenditure",
+      "name": "居民人均消费支出",
+      "unit": "元",
+      "description": "全国居民人均消费支出",
+      "series": []
+    },
+    {
+      "id": "urban_employment",
+      "name": "城镇新增就业人数",
+      "unit": "万人",
+      "description": "全年城镇新增就业",
+      "series": []
+    }
+  ]
+}

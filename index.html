@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>谁在焦虑？——2020-2025中国青年网络情绪图谱</title>
+  <meta name="description" content="2020-2025中国青年网络情绪图谱数据新闻作品">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;600;700&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+</head>
+<body>
+
+  <div id="progress-bar"></div>
+  <nav class="side-nav" id="sideNav" aria-label="章节导航"></nav>
+
+  <!-- 第一页：封面 -->
+  <section class="section" id="cover" data-page="1">
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="cover-box">
+      <h1 class="cover-title">谁在焦虑？</h1>
+      <p class="cover-sub">2020-2025中国青年网络情绪图谱</p>
+      <p class="cover-meta">数据新闻 · 2020—2025 · 31个省级行政区</p>
+    </div>
+    <div class="scroll-tip">向下滚动开始阅读</div>
+  </section>
+
+  <!-- 第二页：数据来源与方法 -->
+  <section class="section" id="sources" data-page="2">
+    <div class="section-inner reveal">
+      <span class="section-tag">DATA SOURCES</span>
+      <h2 class="section-title">数据来源与方法</h2>
+      <div class="divider"></div>
+      <p class="section-desc">本项目整合微博热搜历史数据、国家统计局公开数据、CNNIC 报告与 World Happiness Report，对 2020—2025 年间中国青年网络情绪进行内容分析与时间序列研究。</p>
+
+      <div class="source-grid">
+        <div class="source-card"><h3>微博热搜历史数据</h3><p>情绪词典分析 · 53020 条原始样本</p></div>
+        <div class="source-card"><h3>国家统计局</h3><p>居民收入 · 就业与消费统计</p></div>
+        <div class="source-card"><h3>CNNIC</h3><p>《中国互联网络发展状况统计报告》</p></div>
+        <div class="source-card"><h3>World Happiness Report</h3><p>国际幸福度比较参照</p></div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-num" data-count="53020">0</div><div class="stat-label">条原始数据</div></div>
+        <div class="stat-card"><div class="stat-num gold" data-count="48721">0</div><div class="stat-label">条有效记录</div></div>
+        <div class="stat-card"><div class="stat-num teal" data-count="213547">0</div><div class="stat-label">个情绪词</div></div>
+        <div class="stat-card"><div class="stat-num blue" data-count="31">0</div><div class="stat-label">个省级行政区</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第三页：情绪变化趋势 -->
+  <section class="section" id="trend" data-page="3">
+    <div class="section-inner reveal">
+      <span class="section-tag">TREND</span>
+      <h2 class="section-title">2020-2025 情绪变化趋势</h2>
+      <div class="divider"></div>
+      <div id="chart-trend" class="chart-box"></div>
+      <p class="chart-note">2022 年负面情绪达到峰值 48%，2023 年后积极情绪持续回升。疫情冲击、就业压力与防控调整，构成了五年情绪曲线的三个关键转折点。</p>
+    </div>
+  </section>
+
+  <!-- 第四页：堆叠面积图 -->
+  <section class="section" id="stacked" data-page="4">
+    <div class="section-inner reveal">
+      <span class="section-tag">COMPOSITION</span>
+      <h2 class="section-title">情绪占比变化</h2>
+      <div class="divider"></div>
+      <div id="chart-stacked" class="chart-box"></div>
+      <p class="chart-note">积极情绪逐步增长，负面情绪整体下降，网络舆论环境趋于理性。中性情绪占比相对稳定，充当社会情绪的"缓冲带"。</p>
+    </div>
+  </section>
+
+  <!-- 第五页：词云 -->
+  <section class="section" id="wordcloud" data-page="5">
+    <div class="section-inner reveal">
+      <span class="section-tag">KEYWORDS</span>
+      <h2 class="section-title">中国青年最常提及哪些情绪</h2>
+      <div class="divider"></div>
+      <div id="chart-wordcloud" class="chart-box tall"></div>
+    </div>
+  </section>
+
+  <!-- 第六页：焦虑地图 -->
+  <section class="section" id="map" data-page="6">
+    <div class="section-inner reveal">
+      <span class="section-tag">GEOGRAPHY</span>
+      <h2 class="section-title">焦虑地图</h2>
+      <div class="divider"></div>
+      <p class="section-desc">颜色越深，代表该省份青年群体网络情绪讨论热度越高。广东、浙江、江苏位居前列。</p>
+      <div id="chart-map" class="chart-box map"></div>
+    </div>
+  </section>
+
+  <!-- 第七页：重大事件 -->
+  <section class="section" id="events" data-page="7">
+    <div class="section-inner reveal">
+      <span class="section-tag">EVENTS</span>
+      <h2 class="section-title">重大事件中的情绪波动</h2>
+      <div class="divider"></div>
+      <div id="timeline" class="timeline"></div>
+    </div>
+  </section>
+
+  <!-- 第八页：散点图 -->
+  <section class="section" id="scatter" data-page="8">
+    <div class="section-inner reveal">
+      <span class="section-tag">CORRELATION</span>
+      <h2 class="section-title">收入增长与焦虑关系</h2>
+      <div class="divider"></div>
+      <div id="chart-scatter" class="chart-box"></div>
+      <p class="chart-note">随着居民可支配收入持续增长，负面情绪占比呈下降趋势——收入增长并未消除焦虑，但客观上与情绪改善形成同步轨迹。</p>
+    </div>
+  </section>
+
+  <!-- 第九页：关键发现 -->
+  <section class="section" id="findings" data-page="9">
+    <div class="section-inner reveal">
+      <span class="section-tag">KEY FINDINGS</span>
+      <h2 class="section-title">关键发现</h2>
+      <div class="divider"></div>
+      <div class="findings-grid">
+        <div class="finding-panel">
+          <div class="finding-num" data-count="48" data-suffix="%">0%</div>
+          <p class="finding-label">发现 1：2022 年是负面情绪最高峰</p>
+        </div>
+        <div class="finding-panel">
+          <div class="finding-num gold" data-count="43" data-suffix="%">0%</div>
+          <p class="finding-label">发现 2：2025 年积极情绪达到最高</p>
+        </div>
+        <div class="finding-panel">
+          <div class="finding-num" data-count="9214">0</div>
+          <p class="finding-label">发现 3：「焦虑」成为出现频率最高的情绪词</p>
+        </div>
+        <div class="finding-panel">
+          <div class="finding-num gold" style="font-size:1.6rem;padding-top:0.5rem;">粤·浙·苏</div>
+          <p class="finding-label">发现 4：广东、浙江、江苏情绪讨论热度最高</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第十页：结论 -->
+  <section class="section" id="conclusion" data-page="10">
+    <div class="section-inner reveal">
+      <span class="section-tag">CONCLUSION</span>
+      <h2 class="section-title">情绪也是时代的温度计</h2>
+      <div class="divider"></div>
+      <div class="conclusion-text">
+        <p>从疫情时期的不确定，到经济恢复阶段的重新出发。五年间，中国青年经历过焦虑、迷茫与压力，也收获了希望、治愈与成长。</p>
+        <p>情绪不仅是个体感受，更是观察社会变化的重要窗口。2022 年的情绪低谷与防控调整、就业压力密切相关；2023 年淄博烧烤、杭州亚运会等正面事件则显著拉升了积极情绪占比。</p>
+        <p>当我们在词云中看到「焦虑」「内卷」与「希望」「治愈」并存，看到的不仅是一个世代的心理状态，更是一个国家转型期的集体叙事。</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>《谁在焦虑？——2020-2025中国青年网络情绪图谱》· 数据新闻课程作品</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

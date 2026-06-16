@@ -1,0 +1,40 @@
+{
+  "_importNote": "请从 CNNIC《中国互联网络发展状况统计报告》官网 https://www.cnnic.net.cn/ 导入真实数据。status 设为 loaded 并填充 series 后图表将自动渲染。严禁手工编造数字。",
+  "source": {
+    "name": "CNNIC",
+    "title": "中国互联网络发展状况统计报告",
+    "url": "https://www.cnnic.net.cn/",
+    "reportYears": []
+  },
+  "status": "pending",
+  "indicators": [
+    {
+      "id": "internet_users",
+      "name": "网民规模",
+      "unit": "万人",
+      "description": "中国网民总规模",
+      "series": []
+    },
+    {
+      "id": "social_media_users",
+      "name": "社交媒体用户规模",
+      "unit": "万人",
+      "description": "主要社交媒体平台用户规模",
+      "series": []
+    },
+    {
+      "id": "short_video_users",
+      "name": "短视频用户规模",
+      "unit": "万人",
+      "description": "短视频应用用户规模",
+      "series": []
+    },
+    {
+      "id": "daily_online_hours",
+      "name": "人均每周上网时长",
+      "unit": "小时",
+      "description": "网民人均每周互联网使用时长",
+      "series": []
+    }
+  ]
+}
